@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ../../modules/base
     ../../modules/nixos
-    ../../modules/nixos/hardware/laptop.nix
+    ../../modules/nixos/hardware/desktop.nix
   ];
 
   # Dual boot: NixOS + Windows

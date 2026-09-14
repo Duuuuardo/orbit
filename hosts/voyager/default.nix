@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ../../modules/base
     ../../modules/nixos
-    ../../modules/nixos/hardware/desktop.nix
+    ../../modules/nixos/hardware/laptop.nix
   ];
 
   boot.loader.systemd-boot.enable  = true;
