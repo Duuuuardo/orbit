@@ -4,7 +4,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      font-family = "JetBrainsMono Nerd Font";
+      font-family = "CaskaydiaCove Nerd Font";
       font-size = 12;
       background-opacity = 0.78;
       background-blur-radius = 25;

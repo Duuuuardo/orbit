@@ -210,6 +210,16 @@ StyledWindow {
         }
 
         PanelBg {
+            id: clipboardBg
+
+            panel: panels.clipboard
+            deformAmount: 0.03
+            implicitHeight: panel.height * (1 / rawDeformMatrix.m22) + 2
+            exclude: panels.clipboard.offsetScale > 0.08 ? [] : [utilsBg]
+            bottomLeftRadius: Math.max(0, Math.min(1, panels.clipboard.offsetScale / 0.3)) * radius
+        }
+
+        PanelBg {
             id: osdBg
 
             panel: panels.osdWrapper
@@ -283,6 +293,9 @@ StyledWindow {
             }
             sidebar.transform: Matrix4x4 {
                 matrix: sidebarBg.deformMatrix
+            }
+            clipboard.transform: Matrix4x4 {
+                matrix: clipboardBg.deformMatrix
             }
             osd.transform: Matrix4x4 {
                 matrix: osdBg.deformMatrix

@@ -33,6 +33,33 @@ in {
           pkgs.gcc
           pkgs.gnumake
           pkgs.pkg-config
+
+          pkgs.lua-language-server
+          pkgs.typescript-language-server
+          pkgs.vscode-langservers-extracted
+          pkgs.yaml-language-server
+          pkgs.tailwindcss-language-server
+          pkgs.clang
+          pkgs.omnisharp-roslyn
+          pkgs.phpactor
+          pkgs.rust-analyzer
+          pkgs.netcoredbg
+          pkgs.nixd
+
+          pkgs.stylua
+          pkgs.selene
+          pkgs.lua54Packages.luacheck
+          pkgs.shellcheck
+          pkgs.shfmt
+          pkgs.prettierd
+          pkgs.eslint_d
+          pkgs.prettier
+          pkgs.php84Packages.php-cs-fixer
+          pkgs.csharpier
+          pkgs.fantomas
+
+          pkgs.tree-sitter
+          pkgs.alejandra
         ]}";
     })
   ];

@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
+		opts_extend = { "ensure_installed" },
 		opts = {
 			ensure_installed = {
 				"astro",
@@ -20,6 +20,7 @@ return {
 				"jsdoc",
 				"json",
 				"jsonc",
+				"nix",
 				"php",
 				"python",
 				"rust",
@@ -31,19 +32,6 @@ return {
 				"vim",
 				"yaml",
 			},
-
-			query_linter = {
-				enable = true,
-				use_virtual_text = true,
-				lint_events = { "BufWrite", "CursorHold" },
-			},
 		},
-		config = function(_, opts)
-			local configs = require("nvim-treesitter.configs")
-			configs.setup(opts)
-
-			local add = vim.treesitter.language.add or vim.treesitter.language.register
-			add("markdown", "mdx")
-		end,
 	},
 }

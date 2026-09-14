@@ -33,7 +33,7 @@ in {
           "mode": "dark",
           "dark": "Orbit"
         },
-        "buffer_font_family": "JetBrainsMono Nerd Font",
+        "buffer_font_family": "CaskaydiaCove Nerd Font",
         "buffer_font_features": { "calt": true },
         "multi_cursor_modifier": "cmd_or_ctrl",
         "languages": {

@@ -1,16 +1,12 @@
 return {
 	{
 		"mason-org/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"stylua",
-				"selene",
-				"luacheck",
-				"shellcheck",
-				"shfmt",
-				"prettierd",
-				"eslint_d",
-			})
+		opts = {
+			ensure_installed = {},
+		},
+		config = function(_, opts)
+			opts.ensure_installed = {}
+			require("mason").setup(opts)
 		end,
 	},
 
@@ -20,13 +16,17 @@ return {
 			inlay_hints = { enabled = false },
 
 			servers = {
-				cssls = {},
+				cssls = {
+					mason = false,
+				},
 				tailwindcss = {
+					mason = false,
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
 				},
 				ts_ls = {
+					mason = false,
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
@@ -56,8 +56,11 @@ return {
 						},
 					},
 				},
-				html = {},
+				html = {
+					mason = false,
+				},
 				yamlls = {
+					mason = false,
 					settings = {
 						yaml = {
 							keyOrdering = false,
@@ -65,6 +68,7 @@ return {
 					},
 				},
 				lua_ls = {
+					mason = false,
 					single_file_support = true,
 					settings = {
 						Lua = {
@@ -123,6 +127,7 @@ return {
 					},
 				},
 				clangd = {
+					mason = false,
 					cmd = {
 						"clangd",
 						"--background-index",
@@ -135,13 +140,28 @@ return {
 							or require("lspconfig.util").find_git_ancestor(fname)
 					end,
 				},
+				nixd = {
+					mason = false,
+					settings = {
+						nixd = {
+							formatting = {
+								command = { "alejandra" },
+							},
+							nixpkgs = {
+								expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs {}",
+							},
+						},
+					},
+				},
 				omnisharp = {
+					mason = false,
 					enable_editorconfig_support = true,
 					enable_roslyn_analyzers = false,
 					enable_import_completion = true,
 					analyze_open_documents_only = false,
 				},
 				phpactor = {
+					mason = false,
 					root_dir = require("lspconfig.util").root_pattern("composer.json", ".git"),
 				},
 			},
@@ -150,18 +170,21 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		opts = function()
-			local keys = require("lazyvim.plugins.lsp.keymaps").get()
-			vim.list_extend(keys, {
-				{
-					"gd",
-					function()
-						require("telescope.builtin").lsp_definitions({ reuse_win = false })
-					end,
-					desc = "Goto Definition",
-					has = "definition",
+		opts = {
+			servers = {
+				["*"] = {
+					keys = {
+						{
+							"gd",
+							function()
+								require("telescope.builtin").lsp_definitions({ reuse_win = false })
+							end,
+							desc = "Goto Definition",
+							has = "definition",
+						},
+					},
 				},
-			})
-		end,
+			},
+		},
 	},
 }
