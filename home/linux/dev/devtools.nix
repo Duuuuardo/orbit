@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  programs.git = {
+    enable = true;
+    userName = "Eduardo Fabisiak";
+    userEmail = "eduardofabisiak@proton.me";
+  };
+
   home.packages = with pkgs; [
     lazygit
     lazydocker

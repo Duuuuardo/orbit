@@ -1,8 +1,10 @@
 { ... }:
 {
   imports = [
+    ./hardware-configuration.nix
     ../../modules/base
     ../../modules/nixos
+    ../../modules/nixos/hardware/laptop.nix
   ];
 
   # Dual boot: NixOS + Windows

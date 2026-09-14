@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ../../modules/base
     ../../modules/nixos
-    ../../modules/nixos/hardware/nvidia.nix
+    ../../modules/nixos/hardware/desktop.nix
   ];
 
   boot.loader.systemd-boot.enable  = true;
