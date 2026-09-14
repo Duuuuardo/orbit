@@ -10,8 +10,8 @@
       name = "orbit";
       src = pkgs.runCommand "orbit-spicetify-theme" { } ''
         mkdir -p $out
-        cp ${../../../../config/misc/spicetify/user.css} $out/user.css
-        cp ${../../../../config/misc/spicetify/color.ini} $out/color.ini
+        cp ${../../../config/misc/spicetify/user.css} $out/user.css
+        cp ${../../../config/misc/spicetify/color.ini} $out/color.ini
       '';
     };
     wayland = true;

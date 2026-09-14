@@ -4,10 +4,10 @@
 }:
 
 let
-  generator = ../../../../config/gen-orbit-themes.py;
-  scheme = ../../../../config/misc/orbit/scheme.json;
-  orbitNamed = ../../../../vendor/orbit-cli/src/orbit/data/schemes/orbit/default/dark.txt;
-  zenTemplate = ../../../../config/misc/zen-userchrome.tmpl.css;
+  generator = ../../../config/gen-orbit-themes.py;
+  scheme = ../../../config/misc/orbit/scheme.json;
+  orbitNamed = ../../../vendor/orbit-cli/src/orbit/data/schemes/orbit/default/dark.txt;
+  zenTemplate = ../../../config/misc/zen-userchrome.tmpl.css;
 
   zenUserChrome = pkgs.runCommand "orbit-zen-theme" {
     nativeBuildInputs = [ pkgs.python3 ];

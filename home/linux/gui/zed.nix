@@ -5,10 +5,10 @@
 }:
 
 let
-  generator = ../../../../config/gen-orbit-themes.py;
-  scheme = ../../../../config/misc/orbit/scheme.json;
-  orbitNamed = ../../../../vendor/orbit-cli/src/orbit/data/schemes/orbit/default/dark.txt;
-  zedTemplate = ../../../../vendor/orbit-cli/src/orbit/data/templates/zed.json;
+  generator = ../../../config/gen-orbit-themes.py;
+  scheme = ../../../config/misc/orbit/scheme.json;
+  orbitNamed = ../../../vendor/orbit-cli/src/orbit/data/schemes/orbit/default/dark.txt;
+  zedTemplate = ../../../vendor/orbit-cli/src/orbit/data/templates/zed.json;
 
   orbitshellZed = pkgs.runCommand "orbit-zed-theme" {
     nativeBuildInputs = [ pkgs.python3 ];
