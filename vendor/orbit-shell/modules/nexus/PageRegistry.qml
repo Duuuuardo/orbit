@@ -1,0 +1,95 @@
+pragma Singleton
+
+import QtQuick
+import Orbit.I18n
+
+QtObject {
+    id: root
+
+    readonly property list<var> pages: [
+        
+        
+        {
+            label: Tr.tr("Appearance"),
+            icon: "palette",
+            description: Tr.tr("Fixed theme & wallpaper"),
+            category: "appearance"
+        },
+
+        
+        
+        
+        
+        
+        
+        
+        
+        {
+            label: Tr.tr("Network"),
+            icon: "wifi",
+            description: Tr.tr("Wi-Fi, ethernet, VPN"),
+            category: "connectivity"
+        },
+        {
+            label: Tr.tr("Connected devices"),
+            icon: "devices_other",
+            description: Tr.tr("Bluetooth, pairing"),
+            category: "connectivity",
+            noFill: true
+        },
+        {
+            label: Tr.tr("Audio"),
+            icon: "volume_up",
+            description: Tr.tr("App volumes, sound devices"),
+            category: "connectivity"
+        },
+
+        
+        {
+            label: Tr.tr("Updates"),
+            icon: "update",
+            description: Tr.tr("System updates"),
+            category: "system"
+        },
+        {
+            label: Tr.tr("Plugins"),
+            icon: "extension",
+            description: Tr.tr("Manage plugins"),
+            category: "system"
+        },
+
+        
+        {
+            label: Tr.tr("Panels"),
+            icon: "dock_to_bottom",
+            description: Tr.tr("Dashboard, taskbar, launcher, sidebar"),
+            category: "shell"
+        },
+        {
+            label: Tr.tr("Apps"),
+            icon: "apps",
+            description: Tr.tr("Default apps, favourites, hidden apps"),
+            category: "shell"
+        },
+        {
+            label: Tr.tr("Services"),
+            icon: "build",
+            description: Tr.tr("Poll intervals, lyrics backend"),
+            category: "shell"
+        },
+        {
+            label: Tr.tr("Language & region"),
+            icon: "globe",
+            description: Tr.tr("UI language, weather location, display units"),
+            category: "shell"
+        },
+
+        
+        {
+            label: Tr.tr("About"),
+            icon: "info",
+            description: Tr.tr("System information, credits"),
+            category: "about"
+        },
+    ]
+}

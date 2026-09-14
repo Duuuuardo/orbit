@@ -1,0 +1,294 @@
+:root {
+    color-scheme: dark;
+
+    --c-accent: {{ $mauve }};
+    --c-text: {{ $text }};
+    --c-mantle: {{ $mantle }};
+    --c-base: {{ $base }};
+    --c-crust: {{ $crust }};
+    --c-surface0: {{ $surface0 }};
+    --c-surface1: {{ $surface1 }};
+    --c-surface2: {{ $surface2 }};
+    --c-subtext0: {{ $subtext0 }};
+    --c-subtext1: {{ $subtext1 }};
+
+    --lwt-accent-color: var(--c-accent) !important;
+    --lwt-text-color: var(--c-text) !important;
+    --lwt-accent-color-inactive: var(--c-surface2) !important;
+
+    --zen-main-browser-background: var(--c-base) !important;
+    --zen-themed-toolbar-bg: var(--c-mantle) !important;
+    --zen-colors-primary: var(--c-accent) !important;
+    --zen-colors-secondary: var(--c-surface0) !important;
+    --zen-colors-tertiary: var(--c-mantle) !important;
+    --zen-colors-border: var(--c-surface2) !important;
+
+    --toolbar-bgcolor: var(--c-surface0) !important;
+    --toolbar-color: var(--c-text) !important;
+    --toolbarbutton-hover-background: var(--c-surface1) !important;
+    --toolbarbutton-active-background: var(--c-surface2) !important;
+    --toolbarbutton-icon-fill: var(--c-text) !important;
+    --toolbarbutton-icon-fill-attention: var(--c-accent) !important;
+
+    --toolbar-field-background-color: var(--c-surface0) !important;
+    --toolbar-field-color: var(--c-text) !important;
+    --toolbar-field-focus-background-color: var(--c-surface0) !important;
+    --toolbar-field-focus-color: var(--c-text) !important;
+    --toolbar-field-border-color: transparent !important;
+
+    --arrowpanel-background: var(--c-base) !important;
+    --arrowpanel-color: var(--c-text) !important;
+    --arrowpanel-border-color: var(--c-surface2) !important;
+
+    --lwt-sidebar-background-color: var(--c-mantle) !important;
+    --lwt-sidebar-text-color: var(--c-text) !important;
+
+    --newtab-background-color: var(--c-base) !important;
+    --newtab-text-primary-color: var(--c-text) !important;
+    --newtab-text-secondary-color: var(--c-subtext0) !important;
+    --newtab-primary-action-background: var(--c-accent) !important;
+    --newtab-primary-action-color: var(--c-base) !important;
+
+    --in-content-primary-button-background: var(--c-accent) !important;
+    --in-content-primary-button-background-hover: var(--c-surface2) !important;
+    --in-content-primary-button-text-color: var(--c-base) !important;
+    --in-content-page-background: var(--c-base) !important;
+    --in-content-page-color: var(--c-text) !important;
+    --in-content-box-background: var(--c-surface0) !important;
+    --in-content-box-border-color: var(--c-surface2) !important;
+    --in-content-link-color: var(--c-accent) !important;
+
+    --zen-tab-border-radius: 12px !important;
+    --zen-element-border-radius: 10px !important;
+}
+
+#main-window,
+#browser {
+    background-color: var(--c-base) !important;
+}
+
+#titlebar,
+#navigator-toolbox {
+    background-color: var(--c-mantle) !important;
+    border-bottom: 1px solid var(--c-crust) !important;
+}
+
+#sidebar-box,
+#zen-sidebar,
+#tabbrowser-tabs,
+#vertical-pinned-tabs-container {
+    background-color: var(--c-mantle) !important;
+}
+
+.sidebar-placesTree {
+    background-color: var(--c-mantle) !important;
+    color: var(--c-text) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-row(hover) {
+    background-color: var(--c-surface0) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-row(selected) {
+    background-color: var(--c-surface1) !important;
+    border: none !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-image(selected),
+.sidebar-placesTreechildren::-moz-tree-twisty(selected) {
+    fill: var(--c-accent) !important;
+}
+
+.tabbrowser-tab .tab-background {
+    background-color: var(--c-surface0) !important;
+    border: 1px solid transparent !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background {
+    background-color: var(--c-surface1) !important;
+}
+
+.tabbrowser-tab[selected] > .tab-stack > .tab-background,
+#vertical-pinned-tabs-container .tabbrowser-tab[selected] .tab-background {
+    background-color: var(--c-surface1) !important;
+    border: 1px solid color-mix(in srgb, var(--c-accent) 40%, transparent) !important;
+}
+
+.tabbrowser-tab[pending] {
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+.tab-close-button {
+    fill: var(--c-subtext0) !important;
+}
+
+.tab-close-button:hover {
+    fill: var(--c-text) !important;
+}
+
+#new-tab-button,
+#zen-new-tab-button {
+    fill: var(--c-subtext1) !important;
+}
+
+#new-tab-button:hover,
+#zen-new-tab-button:hover {
+    fill: var(--c-accent) !important;
+}
+
+#urlbar-background {
+    background-color: var(--c-surface0) !important;
+    border-radius: 12px !important;
+}
+
+#urlbar[focused] #urlbar-background {
+    background-color: var(--c-surface0) !important;
+    outline: 1px solid color-mix(in srgb, var(--c-accent) 55%, transparent) !important;
+}
+
+#urlbar:not([focused]) .urlbar-input {
+    text-align: center !important;
+}
+
+@keyframes floating-urlbar-show {
+    0% {
+        opacity: 0;
+        scale: 0.8;
+    }
+
+    70% {
+        scale: 1.02;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+#urlbar[breakout-extend] {
+    animation: 200ms floating-urlbar-show ease-out;
+}
+
+.urlbarView-row {
+    fill: var(--c-text) !important;
+}
+
+.urlbarView-row:hover {
+    background-color: var(--c-surface1) !important;
+}
+
+.urlbarView-row[selected] {
+    background-color: var(--c-surface1) !important;
+}
+
+.urlbarView-url {
+    color: var(--c-subtext0) !important;
+}
+
+.urlbarView-row[selected] .urlbarView-url {
+    color: var(--c-accent) !important;
+}
+
+.urlbarView-action {
+    color: var(--c-subtext0) !important;
+}
+
+.search-one-offs {
+    border-top: 1px solid var(--c-surface2) !important;
+    padding: 4px !important;
+}
+
+.searchbar-engine-one-off-item {
+    border-radius: 8px !important;
+}
+
+.searchbar-engine-one-off-item:hover {
+    background-color: var(--c-surface1) !important;
+}
+
+.searchbar-engine-one-off-item[selected] {
+    background-color: var(--c-surface1) !important;
+}
+
+#urlbar-anon-search-settings {
+    fill: var(--c-subtext0) !important;
+}
+
+panel,
+menupopup {
+    background-color: var(--c-base) !important;
+    color: var(--c-text) !important;
+}
+
+panelview,
+#appMenu-popup,
+#appMenu-mainView {
+    background-color: var(--c-base) !important;
+}
+
+menuitem,
+toolbarbutton,
+button,
+menu {
+    color: var(--c-text) !important;
+}
+
+menuitem:hover,
+menu:hover,
+menuitem[open],
+menu[open],
+toolbarbutton[open] {
+    background-color: var(--c-surface1) !important;
+    color: var(--c-text) !important;
+}
+
+tooltip {
+    background-color: var(--c-mantle) !important;
+    color: var(--c-text) !important;
+    border: 1px solid var(--c-surface2) !important;
+}
+
+#zenEditBookmarkPanelFaviconContainer {
+    background-color: var(--c-mantle) !important;
+}
+
+#permissions-granted-icon {
+    color: var(--c-mantle) !important;
+    fill: var(--c-mantle) !important;
+}
+
+.content-shortcuts {
+    background-color: var(--c-base) !important;
+    border-color: var(--c-surface2) !important;
+}
+
+#zen-sidebar-web-panels button {
+    fill: var(--c-subtext1) !important;
+}
+
+#zen-sidebar-web-panels button:hover {
+    background-color: var(--c-surface0) !important;
+    fill: var(--c-accent) !important;
+}
+
+toolbar .toolbarbutton-1:not([disabled]):is([open], [checked]) :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+    fill: var(--c-accent) !important;
+}
+
+#searchbar,
+#unified-extensions-button {
+    fill: var(--c-subtext0) !important;
+}
+
+#searchbar:hover,
+#unified-extensions-button:hover {
+    fill: var(--c-accent) !important;
+}
+
+#browser,
+#browser-vbox {
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-surface2) var(--c-mantle);
+}

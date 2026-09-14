@@ -1,0 +1,129 @@
+[app]
+overall = { bg = "{{ $base }}" }
+
+[mgr]
+cwd = { fg = "{{ $mauve }}" }
+find_keyword = { fg = "{{ $base }}", bg = "{{ $mauve }}", bold = true }
+find_position = { fg = "{{ $subtext0 }}", italic = true }
+symlink_target = { fg = "{{ $subtext0 }}", italic = true }
+marker_copied = { fg = "{{ $green }}" }
+marker_cut = { fg = "{{ $red }}" }
+marker_marked = { fg = "{{ $yellow }}" }
+marker_selected = { fg = "{{ $mauve }}" }
+count_copied = { fg = "{{ $green }}" }
+count_cut = { fg = "{{ $red }}" }
+count_selected = { fg = "{{ $mauve }}" }
+border_symbol = "│"
+border_style = { fg = "{{ $surface2 }}" }
+
+[indicator]
+parent = { fg = "{{ $mauve }}" }
+current = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+preview = { fg = "{{ $surface2 }}" }
+
+[tabs]
+active = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+inactive = { fg = "{{ $text }}", bg = "{{ $surface0 }}" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+normal_alt = { fg = "{{ $text }}", bg = "{{ $surface1 }}" }
+select_main = { fg = "{{ $base }}", bg = "{{ $blue }}" }
+select_alt = { fg = "{{ $text }}", bg = "{{ $surface1 }}" }
+unset_main = { fg = "{{ $base }}", bg = "{{ $surface2 }}" }
+unset_alt = { fg = "{{ $text }}", bg = "{{ $surface1 }}" }
+
+[status]
+overall = { fg = "{{ $text }}", bg = "{{ $surface0 }}" }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+perm_type = { fg = "{{ $mauve }}" }
+perm_read = { fg = "{{ $subtext1 }}" }
+perm_write = { fg = "{{ $mauve }}" }
+perm_exec = { fg = "{{ $green }}" }
+perm_sep = { fg = "{{ $surface2 }}" }
+progress_label = { fg = "{{ $mauve }}" }
+progress_normal = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+progress_error = { fg = "{{ $base }}", bg = "{{ $red }}" }
+
+[which]
+border = { fg = "{{ $mauve }}" }
+cols = 2
+mask = { bg = "{{ $base }}" }
+cand = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+rest = { fg = "{{ $text }}", bg = "{{ $surface1 }}" }
+desc = { fg = "{{ $text }}" }
+separator = " -> "
+separator_style = { fg = "{{ $surface2 }}" }
+
+[confirm]
+border = { fg = "{{ $mauve }}" }
+title = { fg = "{{ $text }}" }
+title_em = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+body = { fg = "{{ $text }}" }
+list = { fg = "{{ $subtext1 }}" }
+content = { fg = "{{ $subtext0 }}" }
+btn_yes = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+btn_no = { fg = "{{ $text }}", bg = "{{ $surface1 }}" }
+btn_labels = [ "Y", "n" ]
+
+[spot]
+border = { fg = "{{ $mauve }}" }
+title = { fg = "{{ $text }}" }
+tbl_col = { fg = "{{ $mauve }}" }
+tbl_cell = { fg = "{{ $text }}", bg = "{{ $surface0 }}" }
+
+[notify]
+title_info = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+title_warn = { fg = "{{ $base }}", bg = "{{ $yellow }}" }
+title_error = { fg = "{{ $base }}", bg = "{{ $red }}" }
+
+[pick]
+border = { fg = "{{ $mauve }}" }
+active = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+inactive = { fg = "{{ $text }}" }
+
+[input]
+border = { fg = "{{ $mauve }}" }
+title = { fg = "{{ $text }}" }
+value = { fg = "{{ $text }}", italic = true }
+selected = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+
+[cmp]
+border = { fg = "{{ $mauve }}" }
+active = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+inactive = { fg = "{{ $text }}" }
+icon_file = "󰈙"
+icon_folder = "󰉋"
+icon_command = "󰘳"
+
+[tasks]
+border = { fg = "{{ $mauve }}" }
+title = { fg = "{{ $text }}" }
+hovered = { fg = "{{ $base }}", bg = "{{ $mauve }}" }
+
+[help]
+border = { fg = "{{ $mauve }}" }
+chord = { fg = "{{ $mauve }}" }
+action = { fg = "{{ $text }}" }
+hovered = { fg = "{{ $mauve }}" }
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "{{ $pink }}" },
+  { mime = "audio/*", fg = "{{ $peach }}" },
+  { mime = "video/*", fg = "{{ $peach }}" },
+  { mime = "application/{zip,octet-stream,x-archive,x-tar,x-bzip,x-bzip2,x-7z-compressed,gzip,javascript,json,json5,pdf,python-rst,rtf,shell,toml,wasm,xml,zip,x-zerosize,x-yaml}", fg = "{{ $yellow }}" },
+  { mime = "text/*", fg = "{{ $subtext1 }}" },
+  { mime = "inode/directory", fg = "{{ $blue }}" },
+  { mime = "application/*", fg = "{{ $lavender }}" },
+  { url = "*", is = "orphan", fg = "{{ $red }}" },
+  { url = "*", is = "exec", fg = "{{ $green }}" },
+  { url = "*", is = "link", fg = "{{ $sapphire }}" },
+  { url = "*", is = "fifo", fg = "{{ $sapphire }}" },
+  { url = "*", is = "block", fg = "{{ $sapphire }}" },
+  { url = "*", is = "char", fg = "{{ $sapphire }}" },
+  { url = "*", is = "sock", fg = "{{ $sapphire }}" },
+]

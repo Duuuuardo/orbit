@@ -1,0 +1,16 @@
+result
+result-*
+.direnv
+*.pyc
+__pycache__
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.age
+*.pem
+*.key
+id_*
+.env
+.env.*

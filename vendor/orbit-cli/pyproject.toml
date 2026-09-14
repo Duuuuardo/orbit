@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "orbit"
+requires-python = ">=3.13"
+dynamic = ["version"]
+dependencies = [
+    "pillow",
+    "materialyoucolor"
+]
+
+[project.scripts]
+orbit = "orbit:main"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "src",
+    "completions"
+]
+
+[tool.ruff]
+line-length = 120

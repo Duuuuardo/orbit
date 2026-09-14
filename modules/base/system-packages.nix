@@ -1,0 +1,38 @@
+{
+  pkgs,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    git
+    curl
+    wget
+    unzip
+    killall
+    jq
+    pciutils
+    usbutils
+    neovim
+    micro
+    btop
+    fastfetch
+    starship
+    mise
+    mpv
+    uwsm
+
+    eza
+    zoxide
+    bat
+    fd
+    ripgrep
+    fzf
+    trash-cli
+    dust
+    duf
+    procs
+    gping
+    tlrc
+    direnv
+  ];
+}
