@@ -1,5 +1,4 @@
 return {
-	
 	{
 		"mason-org/mason.nvim",
 		opts = function(_, opts)
@@ -9,19 +8,17 @@ return {
 				"luacheck",
 				"shellcheck",
 				"shfmt",
-				"tailwindcss-language-server",
-				"typescript-language-server",
-				"css-lsp",
+				"prettierd",
+				"eslint_d",
 			})
 		end,
 	},
 
-	
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			inlay_hints = { enabled = false },
-			
+
 			servers = {
 				cssls = {},
 				tailwindcss = {
@@ -68,7 +65,6 @@ return {
 					},
 				},
 				lua_ls = {
-					
 					single_file_support = true,
 					settings = {
 						Lua = {
@@ -78,11 +74,6 @@ return {
 							completion = {
 								workspaceWord = true,
 								callSnippet = "Both",
-							},
-							misc = {
-								parameters = {
-									
-								},
 							},
 							hint = {
 								enable = true,
@@ -100,7 +91,6 @@ return {
 							},
 							diagnostics = {
 								disable = { "incomplete-signature-doc", "trailing-space" },
-								
 								groupSeverity = {
 									strong = "Warning",
 									strict = "Warning",
@@ -132,6 +122,28 @@ return {
 						},
 					},
 				},
+				clangd = {
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--completion-style=detailed",
+						"--header-insertion=iwyu",
+					},
+					root_dir = function(fname)
+						return require("lspconfig.util").root_pattern("compile_commands.json", "CMakeLists.txt", ".git")(fname)
+							or require("lspconfig.util").find_git_ancestor(fname)
+					end,
+				},
+				omnisharp = {
+					enable_editorconfig_support = true,
+					enable_roslyn_analyzers = false,
+					enable_import_completion = true,
+					analyze_open_documents_only = false,
+				},
+				phpactor = {
+					root_dir = require("lspconfig.util").root_pattern("composer.json", ".git"),
+				},
 			},
 			setup = {},
 		},
@@ -144,7 +156,6 @@ return {
 				{
 					"gd",
 					function()
-						
 						require("telescope.builtin").lsp_definitions({ reuse_win = false })
 					end,
 					desc = "Goto Definition",

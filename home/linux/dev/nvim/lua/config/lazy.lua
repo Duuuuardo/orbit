@@ -1,11 +1,11 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", 
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		
 		{
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
@@ -25,47 +24,38 @@ require("lazy").setup({
 				},
 			},
 		},
-		
+
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
+
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
-		
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
-		
-		
+		{ import = "lazyvim.plugins.extras.lang.clangd" },
+		{ import = "lazyvim.plugins.extras.lang.dotnet" },
+		{ import = "lazyvim.plugins.extras.lang.php" },
+
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-		
-		
-		
-		
+		{ import = "lazyvim.plugins.extras.editor.telescope" },
+
 		{ import = "plugins" },
 	},
 	defaults = {
-		
-		
 		lazy = false,
-		
-		
-		version = false, 
-		
+		version = false,
 	},
 	dev = {
 		path = "~/.ghq/github.com",
 	},
-	checker = { enabled = true }, 
+	checker = { enabled = true },
 	performance = {
 		cache = {
 			enabled = true,
-			
 		},
 		rtp = {
-			
 			disabled_plugins = {
 				"gzip",
-				
-				
 				"netrwPlugin",
 				"rplugin",
 				"tarPlugin",
