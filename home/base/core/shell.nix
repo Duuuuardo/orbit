@@ -52,5 +52,5 @@
     '';
   };
 
-  home.file.".config/starship.toml".source = ./starship.toml;
+  home.file.".config/starship.toml".source = ../../../config/misc/starship.toml;
 }

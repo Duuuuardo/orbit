@@ -4,14 +4,14 @@
 }:
 
 let
-  generator = ./gen-orbit-themes.py;
-  scheme = ../../../assets/orbit/scheme.json;
-  orbitNamed = ../../../vendor/orbit-cli/src/orbit/data/schemes/orbit/default/dark.txt;
+  generator = ../../../../config/gen-orbit-themes.py;
+  scheme = ../../../../config/misc/orbit/scheme.json;
+  orbitNamed = ../../../../vendor/orbit-cli/src/orbit/data/schemes/orbit/default/dark.txt;
 
   yaziTheme = pkgs.runCommand "orbit-yazi-theme" {
     nativeBuildInputs = [ pkgs.python3 ];
   } ''
-    python3 ${generator} ${scheme} ${orbitNamed} ${./yazi-theme.tmpl.toml} yazi > $out
+    python3 ${generator} ${scheme} ${orbitNamed} ${../../../../config/misc/yazi-theme.tmpl.toml} yazi > $out
   '';
 in {
   home.packages = [ pkgs.yazi ];

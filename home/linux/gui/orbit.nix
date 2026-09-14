@@ -191,7 +191,7 @@
 
   home.file = {
     ".local/state/orbit/scheme.json".source =
-      ../../../assets/orbit/scheme.json;
+      ../../../../config/misc/orbit/scheme.json;
     ".local/state/orbit/wallpaper/path.txt".text =
       "/etc/backgrounds/gravitys-edge.png";
 

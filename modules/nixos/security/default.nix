@@ -1,5 +1,9 @@
 { ... }:
 {
+  imports = [
+    ./ssh.nix
+  ];
+
   boot.kernel.sysctl = {
     "kernel.kptr_restrict" = "1";
     "kernel.dmesg_restrict" = "1";

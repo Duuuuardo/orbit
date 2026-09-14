@@ -4,5 +4,6 @@
     ./display-manager.nix
     ./portals.nix
     ./wallpaper.nix
+    ./xdg.nix
   ];
 }

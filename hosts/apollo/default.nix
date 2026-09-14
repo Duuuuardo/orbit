@@ -1,18 +1,16 @@
 { ... }:
 {
   imports = [
-    ./hardware-configuration.nix
     ../../modules/base
     ../../modules/nixos
-    ../../modules/nixos/hardware/nvidia.nix
   ];
 
+  # Dual boot: NixOS + Windows
   boot.loader.systemd-boot.enable  = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 0;
-  boot.loader.systemd-boot.configurationLimit = 2;
+  boot.loader.timeout = 5;
+  boot.loader.systemd-boot.configurationLimit = 3;
 
-  zramSwap.enable = true;
-
+  # TODO: add hardware-configuration.nix after running nixos-generate-config
   system.stateVersion = "26.05";
 }

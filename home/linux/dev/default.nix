@@ -5,5 +5,6 @@
     ./devtools.nix
     ./kimi.nix
     ./claude-code.nix
+    ./opencode.nix
   ];
 }

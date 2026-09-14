@@ -40,14 +40,14 @@
       mkHost = { hostname, user ? myvars.username, system ? "x86_64-linux", withGames ? false }:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs self myvars; };
+          specialArgs = { inherit inputs self; myvars = myvars // { inherit hostname; }; };
           modules = [
             ./hosts/${hostname}/default.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs self myvars; };
+              home-manager.extraSpecialArgs = { inherit inputs self; myvars = myvars // { inherit hostname; }; };
               home-manager.users.${user} = import ./home/hosts/${hostname}.nix;
             }
           ] ++ nixpkgs.lib.optionals withGames [
@@ -56,7 +56,8 @@
         };
     in {
       nixosConfigurations = {
-        voyager = mkHost { inherit (myvars) hostname; };
+        voyager = mkHost { hostname = "voyager"; withGames = true; };
+        apollo  = mkHost { hostname = "apollo";  withGames = true; };
       };
     };
 }

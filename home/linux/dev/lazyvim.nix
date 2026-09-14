@@ -11,7 +11,7 @@ let
     sha256 = "0lr0ijn3xrbg4qsva3ma5zjanxjb7qa0dsn31gw5bbzq62a6gfj2";
   };
 
-  nvim-config = ./nvim;
+  nvim-config = ../../../../config/nvim;
 
   lazyvim-config = pkgs.runCommand "lazyvim-config" { } ''
     cp -a ${lazyvim-starter}/. "$out"

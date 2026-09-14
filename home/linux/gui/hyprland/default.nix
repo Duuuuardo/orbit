@@ -6,12 +6,12 @@
     configType = "lua";
 
     extraConfig = ''
-      ${builtins.readFile ./config.lua}
-      ${builtins.readFile ./animations.lua}
-      ${builtins.readFile ./decoration.lua}
-      ${builtins.readFile ./rules.lua}
-      ${builtins.readFile ./execs.lua}
-      ${builtins.readFile ./bindings.lua}
+      ${builtins.readFile ../../../../config/hyprland/config.lua}
+      ${builtins.readFile ../../../../config/hyprland/animations.lua}
+      ${builtins.readFile ../../../../config/hyprland/decoration.lua}
+      ${builtins.readFile ../../../../config/hyprland/rules.lua}
+      ${builtins.readFile ../../../../config/hyprland/execs.lua}
+      ${builtins.readFile ../../../../config/hyprland/bindings.lua}
     '';
   };
 
