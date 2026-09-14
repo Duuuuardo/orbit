@@ -56,7 +56,7 @@
         };
     in {
       nixosConfigurations = {
-        voyager = mkHost { hostname = "voyager"; withGames = true; };
+        voyager = mkHost { hostname = "voyager"; };
         apollo  = mkHost { hostname = "apollo";  withGames = true; };
       };
     };
