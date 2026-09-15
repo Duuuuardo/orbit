@@ -12,8 +12,7 @@ let
         shadow = { enabled = false },
       },
       input = {
-        kb_layout = "us",
-        kb_variant = "intl",
+        kb_layout = "us-pt",
         numlock_by_default = false,
         repeat_delay = 250,
         repeat_rate = 35,
