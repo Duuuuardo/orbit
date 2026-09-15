@@ -22,8 +22,6 @@ in
 
   environment.pathsToLink = [ "/share/wayland-sessions" ];
 
-  environment.etc."xkb/symbols/us-pt".source = ../../../config/input/us-pt;
-
   environment.sessionVariables = {
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "24";
