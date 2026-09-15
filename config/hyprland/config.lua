@@ -300,7 +300,7 @@ hl.config({
 hl.config({
     input = {
         kb_layout          = "us",
-        kb_options         = "compose:caps",
+        kb_variant         = "intl",
         numlock_by_default = false,
         repeat_delay       = 250,
         repeat_rate        = 35,

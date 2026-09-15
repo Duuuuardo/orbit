@@ -4,7 +4,7 @@
 
   timezone = "America/Sao_Paulo";
   defaultLocale = "en_US.UTF-8";
-  consoleKeyMap = "us";
+  consoleKeyMap = "us-acentos";
 
   sshAuthorizedKeys = [ ];
 }
