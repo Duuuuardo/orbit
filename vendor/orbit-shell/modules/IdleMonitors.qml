@@ -43,6 +43,12 @@ Scope {
                 root.lock.lock.locked = true;
         }
 
+        function onResumed(): void {
+            const resumeCmd = GlobalConfig.general.idle.resumeCommand;
+            if (resumeCmd)
+                Quickshell.execDetached(resumeCmd);
+        }
+
         function onLockRequested(): void {
             root.lock.lock.locked = true;
         }
@@ -62,6 +68,8 @@ Scope {
 
             enabled: {
                 if (!root.enabled || !(modelData.enabled ?? true))
+                    return false;
+                if (modelData.onlyWhenLocked && !root.lock.lock.locked)
                     return false;
                 if (modelData.inhibitWhenAudio && root.hasPlayer)
                     return false;

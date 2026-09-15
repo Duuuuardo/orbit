@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ inputs, lib, pkgs, myvars, ... }:
 
 {
   imports = [
@@ -180,6 +180,22 @@
         playback = [ "mpv" ];
         explorer = [ "ghostty" "-e" ];
       };
+
+      general.idle = if myvars.hostname == "apollo" then {
+        timeouts = [
+          {
+            timeout = 300;
+            idleAction = "dpms off";
+            returnAction = "dpms on";
+            onlyWhenLocked = true;
+          }
+        ];
+
+        resumeCommand =
+          "pkill mpvpaper; pkill mpvpaper-holder; sleep 0.5; "
+          + "mpvpaper -vs -o 'no-audio loop hwdec=auto' '*' /etc/backgrounds/gravitys-edge.mp4";
+      } else
+        { };
 
       paths.wallpaperDir = "~/Pictures/Wallpapers";
     };
