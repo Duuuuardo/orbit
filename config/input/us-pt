@@ -1,8 +1,8 @@
 // US international layout, tweaked for Brazilian Portuguese:
-// - keeps all us(intl) dead keys (á é í ó ú ã õ via dead_tilde, ç via XCompose)
+// - keeps all us(intl) accent dead keys (á é í ó ú ã õ, ç via XCompose)
 // - Shift+' produces dead_tilde (so Shift+' then a => ã) instead of dead_diaeresis
-//   This mirrors the "us-acentos" console behaviour where ' produces first level
-//   and the tilde lives with the quote key.
+// - Shift+` produces quotedbl " (freeing the old location of the tilde, which
+//   now lives on Shift+'), so double quotes stay on an easy key
 default partial alphanumeric_keys
 xkb_symbols "basic" {
     include "us(intl)"
@@ -10,4 +10,5 @@ xkb_symbols "basic" {
     name[Group1] = "English (US, intl, PT)";
 
     key <AC11> { [ dead_acute, dead_tilde, apostrophe, quotedbl ] };
+    key <TLDE> { [ dead_grave, quotedbl,         grave, asciitilde ] };
 };

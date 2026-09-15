@@ -6,12 +6,10 @@
   home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 
-  # LibX11 Compose kept as absolute store path (NixOS has no /usr/share/X11/locale,
-  # so "include %L" would silently fail and dead keys would break in GTK apps).
-  # Overrides come AFTER the include so they win over the base "ç"/"ć" bindings.
+  # GTK4 reads ~/.XCompose directly (or ~/.config/gtk-4.0/Compose first).
+  # Its built-in table maps dead_acute+c → ć (X11 line 575). We override
+  # to ç. No include needed: GTK merges file entries over its built-in table.
   home.file.".XCompose".text = ''
-    include "${pkgs.xorg.libX11}/share/X11/locale/en_US.UTF-8/Compose"
-
     <dead_acute> <c> : "ç"
     <dead_acute> <C> : "Ç"
   '';
