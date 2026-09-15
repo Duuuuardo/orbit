@@ -46,14 +46,7 @@ local function extend_keybind(base, suffix)
 end
 
 -- Launcher
-local launcher_default = normalise_keybind("SUPER + SUPER_L")
-create_bind(
-    vars.kbLauncher,
-    hl.dsp.global("orbit:launcher"),
-    function(key)
-        return normalise_keybind(key) == launcher_default and release or nil
-    end
-)
+create_bind(vars.kbLauncher, hl.dsp.global("orbit:launcher"))
 
 -- Misc
 create_bind(vars.kbSession, hl.dsp.global("orbit:session"))
@@ -62,15 +55,13 @@ create_bind(vars.kbClearNotifs, hl.dsp.global("orbit:clearNotifs"), locked)
 create_bind(vars.kbShowPanels, hl.dsp.global("orbit:showall"))
 create_bind(vars.kbLock, hl.dsp.global("orbit:lock"))
 
--- Restore lock
-create_bind(vars.kbRestoreLock, function()
-    hl.dispatch(hl.dsp.exec_cmd("orbit shell -d"))
-    hl.dispatch(hl.dsp.global("orbit:lock"))
-end)
+-- Restore lock: the shell restarts through its systemd service,
+-- so this only needs to re-engage the lock.
+create_bind(vars.kbRestoreLock, hl.dsp.global("orbit:lock"))
 
--- Kill/restart the shell
-create_bind("CTRL + SUPER + SHIFT + R", hl.dsp.exec_cmd("orbit shell -k"), release)
-create_bind("CTRL + SUPER + ALT + R", hl.dsp.exec_cmd("orbit shell -r"), release)
+-- Kill/restart the shell through its systemd service
+create_bind("CTRL + SUPER + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart orbit"), release)
+create_bind("CTRL + SUPER + ALT + R", hl.dsp.exec_cmd("systemctl --user restart orbit"), release)
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0

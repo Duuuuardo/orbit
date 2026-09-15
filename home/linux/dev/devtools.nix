@@ -2,8 +2,13 @@
 {
   programs.git = {
     enable = true;
-    userName = "Eduardo Fabisiak";
-    userEmail = "eduardofabisiak@proton.me";
+    settings = {
+      user = {
+        name = "Eduardo Fabisiak";
+        email = "eduardofabisiak@proton.me";
+      };
+      safe.directory = "/etc/nixos";
+    };
   };
 
   home.packages = with pkgs; [

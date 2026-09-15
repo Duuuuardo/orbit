@@ -76,8 +76,8 @@ local vars = {
     -- Modifier only, the actual binds will be mod + 0-9. These should be strings and not arrays.
     kbGoToWs                   = "SUPER",
     kbGoToWsGroup              = "CTRL + SUPER",
-    kbMoveWinToWs              = "SUPER + ALT",
-    kbMoveWinToWsGroup         = "CTRL + SUPER + ALT",
+    kbMoveWinToWs              = "SUPER + SHIFT",
+    kbMoveWinToWsGroup         = "CTRL + SUPER + SHIFT",
 
     -- All the following binds can be either an array of binds to bind multiple keys, or a single string.
 
@@ -148,7 +148,7 @@ local vars = {
     kbVolumeMute               = "SUPER + SHIFT + M",
 
     -- Misc
-    kbLauncher                 = "SUPER + SUPER_L",
+    kbLauncher                 = "SUPER + SPACE",
     kbSession                  = "CTRL + ALT + Delete",
     kbShowSidebar              = "SUPER + N",
     kbClearNotifs              = "CTRL + ALT + C",

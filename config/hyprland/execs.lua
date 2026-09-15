@@ -14,12 +14,6 @@ hl.on("hyprland.start", function()
     -- Wallpaper
     hl.exec_cmd("mpvpaper -vs -o 'no-audio loop hwdec=auto' '*' /etc/backgrounds/gravitys-edge.mp4")
 
-    -- Start shell
-    hl.exec_cmd("orbit shell -d")
-
-    -- Watchdog: keep exactly one orbit-shell instance running
-    hl.exec_cmd("while hyprctl activewindow >/dev/null 2>&1; do n=$(pgrep -cf '[o]rbit-shell-1.0.0/share/orbit-shell'); if [ \"$n\" -gt 1 ]; then pkill -f quickshell; sleep 2; elif [ \"$n\" = 0 ]; then orbit shell -d; sleep 6; fi; sleep 3; done")
-
     -- Keep the theme in sync for zen (browser)
     hl.exec_cmd("while true; do zen-apply-theme; sleep 10; done")
 end)
